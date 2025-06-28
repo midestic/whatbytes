@@ -8,7 +8,7 @@ export default function Home() {
       <Header />
 
       <main className="flex">
-        <div className="w-[30%] border"></div>
+        <div className="w-[30%] border p-[20px]"></div>
         <div className="w-[70%] border"></div>
       </main>
     </div>
