@@ -19,7 +19,7 @@ export default async function ProductDetail({
   });
 
   if (!res.ok) {
-    return <div>Product not found</div>;
+    throw new Error("Product not found");
   }
 
   const product: Product = await res.json();
