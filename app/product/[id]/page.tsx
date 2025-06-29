@@ -9,15 +9,11 @@ interface Product {
   category: string;
 }
 
-interface ProductDetailPageProps {
-  params: {
-    id: string;
-  };
-}
-
 export default async function ProductDetail({
   params,
-}: ProductDetailPageProps) {
+}: {
+  params: { id: string };
+}) {
   const res = await fetch(`https://fakestoreapi.com/products/${params.id}`, {
     cache: "no-store",
   });
