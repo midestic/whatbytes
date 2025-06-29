@@ -31,8 +31,8 @@ export default function Home() {
       if (!res.ok) throw new Error("products fetching failed");
       const data = await res.json();
       setProducts(data);
-    } catch (err: any) {
-      setError(err.message || "An error occurred");
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
       setLoading(false);
     }

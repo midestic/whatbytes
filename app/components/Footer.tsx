@@ -3,8 +3,8 @@ import { BsInstagram, BsTwitterX } from "react-icons/bs";
 import { FaCopyright, FaFacebook } from "react-icons/fa6";
 
 export default function Footer() {
-  let date = new Date();
-  let year = date.getFullYear();
+  const date = new Date();
+  const year = date.getFullYear();
   return (
     <div className="w-[100%] bg-[#0758a8] max-md:py-[20px]">
       <div className="w-[100%] flex justify-between items-start text-white max-md:flex-col">

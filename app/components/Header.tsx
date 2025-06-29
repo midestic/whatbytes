@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import { FaShoppingCart } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import { useCart } from "../context/CartContext";
 
@@ -9,7 +8,7 @@ type SearchProps = {
   setSearch?: (value: string) => void;
 };
 
-export default function Header({ search, setSearch }: SearchProps) {
+export default function Header({ setSearch }: SearchProps) {
   const { cart } = useCart();
 
   return (

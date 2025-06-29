@@ -1,22 +1,15 @@
 import React from "react";
 
 type ItemsProps = {
-  id: number;
+  id?: number;
   title: string;
   image: string;
   price: number;
-  description: string;
-  category: string;
+  description?: string;
+  category?: string;
 };
 
-export default function ProductsCard({
-  id,
-  title,
-  image,
-  price,
-  description,
-  category,
-}: ItemsProps) {
+export default function ProductsCard({ title, image, price }: ItemsProps) {
   return (
     <div className="w-[100%] space-y-[20px] h-auto">
       <div className="w-[100%] h-[300px]">
