@@ -9,15 +9,12 @@ interface Product {
   category: string;
 }
 
-export const revalidate = 0;
-
-export default async function ProductDetailPage({
+export default async function ProductDetail({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 }) {
-  const { id } = await params;
-  const res = await fetch(`https://fakestoreapi.com/products/${id}`, {
+  const res = await fetch(`https://fakestoreapi.com/products/${params.id}`, {
     cache: "no-store",
   });
 
