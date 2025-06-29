@@ -4,7 +4,7 @@ A full-featured e-commerce application built with Next.js 15, featuring product 
 
 ## 🌐 Live Demo
 
-[View Live Application](https://ecommerce-a3jr74q0w-midestics-projects.vercel.app/)
+[View Live Application](https://ecommerce-opal-two.vercel.app/)
 
 ## ✨ Features
 
@@ -172,7 +172,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For any questions or suggestions, feel free to reach out:
 
-- Project Link: [https://ecommerce-a3jr74q0w-midestics-projects.vercel.app/](https://ecommerce-a3jr74q0w-midestics-projects.vercel.app/)
+- Project Link: https://ecommerce-opal-two.vercel.app/
 - Email: badmususman50@gmail.com
 
 ---
