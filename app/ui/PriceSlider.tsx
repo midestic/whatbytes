@@ -1,12 +1,14 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
 import Slider from "@mui/material/Slider";
 import Box from "@mui/material/Box";
 
-export default function PriceSlider() {
-  const [range, setRange] = useState<[number, number]>([0, 1000]);
-
+export default function PriceSlider({
+  range,
+  setRange,
+}: {
+  range: [number, number];
+  setRange: (range: [number, number]) => void;
+}) {
   const handleChange = (_event: Event, newValue: number | number[]) => {
     if (Array.isArray(newValue)) {
       setRange([newValue[0], newValue[1]]);
@@ -14,7 +16,7 @@ export default function PriceSlider() {
   };
 
   return (
-    <Box className="w-full  text-white p-4 rounded-lg mx-auto mt-10">
+    <Box className="w-full text-white p-4 rounded-lg mx-auto mt-2">
       <label className="block mb-2 font-semibold text-white">Price</label>
       <Slider
         value={range}
