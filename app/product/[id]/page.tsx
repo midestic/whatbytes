@@ -10,15 +10,17 @@ interface Product {
 }
 
 interface ProductDetailPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default async function ProductDetail({
   params,
 }: ProductDetailPageProps) {
-  const res = await fetch(`https://fakestoreapi.com/products/${params.id}`, {
+  const { id } = await params;
+
+  const res = await fetch(`https://fakestoreapi.com/products/${id}`, {
     cache: "no-store",
   });
 
