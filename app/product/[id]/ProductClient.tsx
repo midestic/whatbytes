@@ -23,7 +23,7 @@ export default function ProductClient({ product }: { product: Product }) {
           className=" flex justify-between items-start max-w-[1280px] w-[90%] gap-x-[20px] mx-auto 
         translate-y-[180px] max-md:flex-col pb-[100px] max-md:w-[100%] max-md:px-[20px]"
         >
-          <div className="w-[39%] h-[500px] border max-md:w-[100%]">
+          <div className="w-[39%] h-[500px]  max-md:w-[100%]">
             <img
               src={product.image}
               alt={product.title}

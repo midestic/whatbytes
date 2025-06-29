@@ -32,7 +32,10 @@ export default function SidebarFilter() {
   };
 
   return (
-    <div className="w-[100%] flex flex-col gap-y-[20px] mt-[150px]">
+    <div
+      className="w-[100%] flex flex-col gap-y-[20px] mt-[150px] max-md:w-[80%] ml-auto bg-white max-md:mt-[80px] p-[10px] 
+    h-screen "
+    >
       <div className="bg-[#0758a8] text-white  space-y-[20px] p-[20px] rounded-[20px]">
         <h1 className="font-[700] text-[14px]">Filters</h1>
         <div className="flex flex-col gap-y-[10px]">

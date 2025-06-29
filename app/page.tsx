@@ -6,7 +6,6 @@ import ProductsCard from "./components/ProductsCard";
 import SidebarFilter from "./components/SidebarFilter";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import Footer from "./components/Footer";
 
 type ProductTypes = {
   id: number;
@@ -20,14 +19,25 @@ type ProductTypes = {
 export default function Home() {
   const [products, setProducts] = useState<ProductTypes>([]);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const searchParams = useSearchParams();
 
-  useEffect(() => {
-    async function fetchProducts() {
+  async function fetchProducts() {
+    setLoading(true);
+    setError(null);
+    try {
       const res = await fetch("https://fakestoreapi.com/products");
+      if (!res.ok) throw new Error("products fetching failed");
       const data = await res.json();
       setProducts(data);
+    } catch (err: any) {
+      setError(err.message || "An error occurred");
+    } finally {
+      setLoading(false);
     }
+  }
+  useEffect(() => {
     fetchProducts();
   }, []);
 
@@ -55,14 +65,22 @@ export default function Home() {
       <Header search={search} setSearch={setSearch} />
 
       <main className="flex bg-gray-2 bg-[#f5f7fd]">
-        <div className="w-[30%]  p-[20px] max-md:hidden">
+        <div className={`max-md:hidden w-[30%]`}>
           <SidebarFilter />
         </div>
 
         <div className="w-[70%]  p-[20px] mt-[150px] max-md:w-[100%]">
           <h1 className="font-[900] text-[30px]">Product Listing</h1>
 
-          {filteredItems.length === 0 ? (
+          {loading ? (
+            <div className="text-center font-bold text-blue-500 text-lg mt-10">
+              Loading products......
+            </div>
+          ) : error ? (
+            <div className="text-center text-red-500 text-lg mt-10">
+              {error}
+            </div>
+          ) : filteredItems.length === 0 ? (
             <div className="text-center text-gray-500 text-lg mt-10">
               No products found.
             </div>
@@ -71,8 +89,8 @@ export default function Home() {
               {filteredItems.map((items) => (
                 <Link href={`/product/${items.id}`} key={items.id}>
                   <div
-                    className="border h-auto bg-white rounded-[10px]
-            flex flex-col justify-center items-center gap-y-[20px] p-[20px]"
+                    className=" h-auto bg-white rounded-[10px]
+            flex flex-col justify-center items-center gap-y-[20px] p-[20px] shadow shadow-gray-600 "
                   >
                     <ProductsCard
                       id={items.id}
@@ -89,8 +107,6 @@ export default function Home() {
           )}
         </div>
       </main>
-
-      {/* <Footer /> */}
     </div>
   );
 }
