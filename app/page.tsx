@@ -51,15 +51,15 @@ export default function Home() {
   });
 
   return (
-    <div className="w-[100%] ">
+    <div className="w-[100%] max-md:overflow-x-hidden">
       <Header search={search} setSearch={setSearch} />
 
       <main className="flex bg-gray-2 bg-[#f5f7fd]">
-        <div className="w-[30%] border p-[20px] ">
+        <div className="w-[30%]  p-[20px] max-md:hidden">
           <SidebarFilter />
         </div>
 
-        <div className="w-[70%] border p-[20px] mt-[120px] ">
+        <div className="w-[70%]  p-[20px] mt-[150px] max-md:w-[100%]">
           <h1 className="font-[900] text-[30px]">Product Listing</h1>
 
           {filteredItems.length === 0 ? (
@@ -67,7 +67,7 @@ export default function Home() {
               No products found.
             </div>
           ) : (
-            <div className="grid grid-cols-3 gap-5 border border-amber-400 mt-[40px] ">
+            <div className="grid grid-cols-3 gap-5  mt-[40px] max-md:grid-cols-2">
               {filteredItems.map((items) => (
                 <Link href={`/product/${items.id}`} key={items.id}>
                   <div
@@ -90,7 +90,7 @@ export default function Home() {
         </div>
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
